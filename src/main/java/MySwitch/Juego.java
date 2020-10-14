@@ -17,7 +17,7 @@ public class Juego {
                 System.out.println("Cual es tu usuario?");
                 String usuario= leer.next();
                 System.out.println(usuario+" esta chilo!");
-            break;
+                break;
             case "T": System.out.println("Eres un Niño Rata!");  break;
             case "C": System.out.println("Eres un CRACK!");  break;
             default: System.out.println("No se que juego es ese!");
