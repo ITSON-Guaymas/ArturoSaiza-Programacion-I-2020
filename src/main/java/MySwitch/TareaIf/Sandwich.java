@@ -1,14 +1,24 @@
  
 package MySwitch.TareaIf;
 
+import java.util.Scanner;
+
  
 public class Sandwich {
-
-    /**
-     * @param args the command line arguments
-     */
+ 
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        String hambre;
+        Scanner leer = new Scanner(System.in); 
+      
+        System.out.println("Tienes hambre?");
+        hambre = leer.next();
+
+
+        if(hambre.equalsIgnoreCase("Si")){
+            System.out.println("Comete un Sandwich");
+        }
+        
     }
     
 }
