@@ -66,12 +66,10 @@ public class Pizza {
                 case 1: TipoPizza+="Refresco: Coca-cola  --- $20 \n";  total+=20;  break;
                 case 2: TipoPizza+="Refresco: Manzanita  --- $20 \n";  total+=20;  break;
                 case 3: TipoPizza+="Refresco: Nestea  --- $20 \n";  total+=20; break;
-            } 
-            
+            }             
             TipoPizza+="----------------------------- \n";
             
-        }
-        
+        }        
         System.out.println("Tipo de Orden");
         System.out.println("Para llevar (1),Para comer aqui(2), A domicilio(3) ");
         int tipoOrden = leer.nextInt(); leer.nextLine();
@@ -84,13 +82,11 @@ public class Pizza {
                 TipoPizza+="Domicilio: "+leer.nextLine()+"\n"; 
                 total+=35; 
                 break;
-        }        
+        }     
         
         System.out.println("\n \n------------Pizeria EL PEPE --------------");
         System.out.println(" -------------------- TIKET --------------------");
         System.out.println(TipoPizza);        
-        System.out.println("TOTAL: $"+total);
-               
-    }   
-    
+        System.out.println("TOTAL: $"+total);               
+    }       
 }
