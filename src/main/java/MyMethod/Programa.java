@@ -22,9 +22,35 @@ public class Programa {
 
    
     public static void main(String[] args) {
-        
-      //  ver_todos();
+         
         registrar("Arturo","arturogsaiza@gmail.com","zapato",28);
+        registrar("Juanito","juangsaiza@gmail.com","canica",18);
+        registrar("Axel","axel@gmail.com","minecraft",18);
+     
+       
+        // editar(2,"Axel","axelin@gmail.com","mincraft",17);
+        // ver(2);
+       
+        //ver_todos();
+       // eliminar(1);
+       
+       int usuario_login = login("axel@gmail.com","minecraft");
+        
+       System.out.println(usuario_login);
+       
+       if(usuario_login == -1){
+           System.out.println("El usuario o la contraseña son incorrectos");
+       }else{
+           System.out.println("Bienvenido "+nombres[usuario_login]);
+          
+           ver(usuario_login);
+           
+       }
+        
+        
+        
+//  ver_todos();
+    /*    registrar("Arturo","arturogsaiza@gmail.com","zapato",28);
         registrar("Juanito","juangsaiza@gmail.com","canica",18);
       
         int usuarioLogin = login("arturogsaiza@gmail.com","zapato");
@@ -35,23 +61,24 @@ public class Programa {
              System.out.println("Bienvenido "+nombres[usuarioLogin]);
              ver(usuarioLogin);
         }
-        
+        */
     }
     
     public static void registrar(String nombre, String correo, String contrasena, int edad){
      for(int i=0; i<nombres.length; i++){
-        if(nombres[i]==null){
+         if(nombres[i] == null){
             nombres[i]=nombre;
             correos[i]=correo;
             contrasenas[i]= contrasena;
             edades[i]=edad;
-            break;
-         } 
+           break;
+          } 
      }
     }
     
     public static int login(String correo, String contrasena){
         int usuario_encontrado= -1;
+       
         for(int i=0; i<nombres.length; i++){
          
             if(nombres[i]!= null){
@@ -61,6 +88,7 @@ public class Programa {
                 }
             }
         }
+        
         return  usuario_encontrado;
     }
     
@@ -70,24 +98,31 @@ public class Programa {
             System.out.println(correos[i]);
             System.out.println(contrasenas[i]);
             System.out.println(edades[i]);
-    }
-    
+    }    
     public static void ver_todos(){
           for(int i=0; i<nombres.length; i++){
-            System.out.println(" ------ #"+i+" ------");
-            System.out.println(nombres[i]);
-            System.out.println(correos[i]);
-            System.out.println(contrasenas[i]);
-            System.out.println(edades[i]);
+                System.out.println(" ------ #"+i+" ------");
+                System.out.println(nombres[i]);
+                System.out.println(correos[i]);
+                System.out.println(contrasenas[i]);
+                System.out.println(edades[i]);
           }
     }
     
+    //CRUD
     
     public static void editar(int i, String nombre, String correo, String contrasena, int edad){
             nombres[i]= nombre;
             correos[i]= correo;
             contrasenas[i]= contrasena;
             edades[i]= edad; 
+    }
+    
+    public static void eliminar(int i){
+            nombres[i]= null;
+            correos[i]= null;
+            contrasenas[i]= null;
+            edades[i]= 0; 
     }
     
     
