@@ -22,18 +22,56 @@ public class Programa {
 
    
     public static void main(String[] args) {
-         
-        registrar("Arturo","arturogsaiza@gmail.com","zapato",28);
+        
+        System.out.println("Facebook");
+        
+        int menu = 0;
+        
+        do{
+            System.out.println("Login (1), Registrar(2), Salir(0)");  
+            menu = leer.nextInt(); leer.nextLine();
+            String correo, contrasena, nombre;
+            int edad;
+            switch(menu){
+                case 0: System.out.println("Saliendo...! "); break;
+                case 1: 
+                    System.out.println("---------- Login -------");
+                    System.out.println("Correo: ");
+                      correo = leer.nextLine();
+                     System.out.println("Contraseña: ");
+                      contrasena = leer.nextLine();
+                    int usuarioLogin = login(correo, contrasena);
+                    
+                    if(usuarioLogin== -1){
+                        System.out.println("Usuario o contraseña incorrectas.");
+                    }else{
+                        SeccionConSessionIniciada(usuarioLogin);
+                    }
+                    
+                    break;
+                    case 2: 
+                        System.out.println("Registro de usuario");   
+                         System.out.println("Nombre:");   
+                           nombre = leer.nextLine();
+                         System.out.println("correo:");
+                           correo = leer.nextLine();
+                         System.out.println("Contraseña:");
+                           contrasena = leer.nextLine();
+                         System.out.println("Edad:");
+                           edad = leer.nextInt(); leer.nextLine();
+                         registrar(nombre, correo, contrasena, edad);
+                    break;
+            }
+            
+        }while(menu!=0);
+        
+        
+        
+      /*  registrar("Arturo","arturogsaiza@gmail.com","zapato",28);
         registrar("Juanito","juangsaiza@gmail.com","canica",18);
         registrar("Axel","axel@gmail.com","minecraft",18);
      
-       
-        // editar(2,"Axel","axelin@gmail.com","mincraft",17);
-        // ver(2);
-       
-        //ver_todos();
-       // eliminar(1);
-       
+   
        int usuario_login = login("axel@gmail.com","minecraft");
         
        System.out.println(usuario_login);
@@ -41,28 +79,48 @@ public class Programa {
        if(usuario_login == -1){
            System.out.println("El usuario o la contraseña son incorrectos");
        }else{
-           System.out.println("Bienvenido "+nombres[usuario_login]);
-          
+           System.out.println("Bienvenido "+nombres[usuario_login]); 
            ver(usuario_login);
            
-       }
-        
-        
-        
-//  ver_todos();
-    /*    registrar("Arturo","arturogsaiza@gmail.com","zapato",28);
-        registrar("Juanito","juangsaiza@gmail.com","canica",18);
-      
-        int usuarioLogin = login("arturogsaiza@gmail.com","zapato");
-        
-        if(usuarioLogin == -1){
-            System.out.println("Correo o contraseña incorrectos.");
-        }else{
-             System.out.println("Bienvenido "+nombres[usuarioLogin]);
-             ver(usuarioLogin);
-        }
+       } 
         */
+        
+ 
     }
+   
+    public static void SeccionConSessionIniciada(int posicionUsuario){
+    
+        System.out.println("Bienvenido "+nombres[posicionUsuario]);
+    
+        int menuSessionIniciada=0;
+        
+        do{
+            System.out.println("Perfil (1), Editar(2), Salir(0)");
+            menuSessionIniciada = leer.nextInt(); leer.nextLine();
+            
+            switch(menuSessionIniciada){
+                case 0: System.out.println("Cerrando Sesion"); break;
+                case 1: ver(posicionUsuario); break;
+                case 2: 
+                      System.out.println("Editar perfil");
+                    String correo, contrasena, nombre;
+                   int edad; 
+                    System.out.println("correo:");
+                    correo = leer.nextLine();
+                    System.out.println("Contraseña:");
+                    contrasena = leer.nextLine();
+                    System.out.println("Edad:");
+                    edad = leer.nextInt(); leer.nextLine();
+                    editar(posicionUsuario,nombres[posicionUsuario],correo, contrasena, edad);
+                  
+                break;
+            }
+            
+        }while(menuSessionIniciada!=0);
+        
+    
+    }
+    
     
     public static void registrar(String nombre, String correo, String contrasena, int edad){
      for(int i=0; i<nombres.length; i++){
